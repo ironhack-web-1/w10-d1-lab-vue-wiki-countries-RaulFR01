@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-5" style="max-height: 90vh; overflow: scroll">
         <div class="list-group">
-          <a
+          <router-link
             class="list-group-item list-group-item-action"
             v-for="pais in paises"
             :key="pais.name"
-            href=""
+            to="/details"
           >
             <img
               :src="
@@ -17,7 +17,7 @@
               "
             />
             <p>{{ pais.name.common }}</p>
-          </a>
+          </router-link>
         </div>
       </div>
       <router-view />
