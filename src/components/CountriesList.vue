@@ -7,7 +7,7 @@
             class="list-group-item list-group-item-action"
             v-for="pais in paises"
             :key="pais.name"
-            to="/details"
+            :to="`/details/` + pais.alpha2Code"
           >
             <img
               :src="

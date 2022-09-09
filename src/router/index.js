@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/details", // THEN, YOU WILL HAVE TO CHANGE THIS FOR A PARAM!
+    path: "/details/:alpha2code", // THEN, YOU WILL HAVE TO CHANGE THIS FOR A PARAM!
     name: "details",
     component: () =>
       import(
