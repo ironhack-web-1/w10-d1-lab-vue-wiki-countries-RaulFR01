@@ -7,14 +7,14 @@
         `.png`
       "
       alt="country flag"
-      style="width: 300px"
+      style="width: 150px"
     />
     <h1>{{ pais.name.common }}</h1>
     <table class="table">
       <thead></thead>
       <tbody>
         <tr>
-          <td style="width: 30%"></td>
+          <td style="width: 30%">Capital</td>
           <td>{{ pais.capital[0] }}</td>
         </tr>
         <tr>
@@ -26,7 +26,9 @@
           <td>
             <ul>
               <li v-for="borders in pais.borders" :key="borders">
-                <a>{{ borders }}</a>
+                <router-link :to="`/details/` + borders">{{
+                  borders
+                }}</router-link>
               </li>
             </ul>
           </td>
@@ -46,16 +48,18 @@ export default {
     };
   },
   methods: {
-    getCountry() {
-      let array = [];
-      const alpha2code = this.$route.params.alpha2code;
+    getCountry(ruta) {
+      const alpha2code = ruta;
       this.country = this.ListOfCountries.filter(
         (pais) => pais.alpha2Code === alpha2code
       );
     },
   },
+  updated() {
+    this.getCountry(this.$route.params.alpha2code);
+  },
   mounted() {
-    this.getCountry();
+    this.getCountry(this.$route.params.alpha2code);
   },
 };
 </script>
